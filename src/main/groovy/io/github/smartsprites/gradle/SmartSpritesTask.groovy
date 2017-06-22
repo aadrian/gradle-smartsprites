@@ -33,10 +33,10 @@ class SmartSpritesTask extends DefaultTask {
         List<String> args = new LinkedList<String>();
 
         args.add("--root-dir-path");
-        args.add(rootDirPath?:"$project.projectDir/src/main/webapp")
+        args.add(rootDirPath?:"${project.projectDir}${File.separator}src${File.separator}main${File.separator}webapp".toString())
 
         args.add("--output-dir-path");
-        args.add(outputDirPath?:"$project.buildDir/$project.name");
+        args.add(outputDirPath?:"${project.buildDir}${File.separator}${project.name}".toString());
 
         if (logLevel != null) {
             args.add("--log-level");
@@ -78,7 +78,7 @@ class SmartSpritesTask extends DefaultTask {
             args.add(spritePngIe6);
         }
 
-        println "Call SmartSprties with args = $args"
+        // println "Call SmartSprties with args = $args"
         SmartSprites.main(args.toArray(new String[0]));
     }
 }
