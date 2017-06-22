@@ -18,6 +18,8 @@ class SmartSpritesTask extends DefaultTask {
         String noCssFileSuffix = project.spriteConf.noCssFileSuffix
         String logLevel = project.spriteConf.logLevel
 
+        def source = project.spriteConf.source
+
         println "----------SpriteConfig:-------------"
         println "rootDirPath="+  rootDirPath
         println "outputDirPath="+  outputDirPath
@@ -29,6 +31,7 @@ class SmartSpritesTask extends DefaultTask {
         println "cssFileSuffix="+  cssFileSuffix
         println "noCssFileSuffix="+  noCssFileSuffix
         println "logLevel="+  logLevel
+        println "source="+  source?.getFiles()
 
         List<String> args = new LinkedList<String>();
 
@@ -43,10 +46,34 @@ class SmartSpritesTask extends DefaultTask {
             args.add(logLevel);
         }
 
+//        if (cssFiles != null) {
+//            args.add("--css-files");
+//            args.add(cssFiles);
+//        }
+
         if (cssFiles != null) {
-            args.add("--css-files");
-            args.add(cssFiles);
+            // if there's more than one file specified (separated with a colon)
+            if(cssFiles.contains(",")) {
+                def files = cssFiles.split(",")
+                files.each {
+                    args.add("--css-files");
+                    args.add(it.toString())
+                }
+            } else {
+                args.add("--css-files");
+                args.add(cssFiles);
+            }
         }
+
+        if(source!=null) {
+            def files = source.getFiles()
+            // for each file we add it to the
+            files.each {
+                args.add("--css-files");
+                args.add(it.toString())
+            }
+        }
+
 
         if("true".equals(noCssFileSuffix)) {
             args.add("--css-file-suffix");

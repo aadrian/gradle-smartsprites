@@ -13,4 +13,7 @@ class SmartSpritesExtension {
     String cssFileSuffix
     String noCssFileSuffix = "false"
     String logLevel = "WARN"
+
+    // FileCollection
+    def source
 }

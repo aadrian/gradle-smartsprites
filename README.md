@@ -25,8 +25,12 @@ spriteConf {
     cssFileSuffix = "-v${version}"
 	logLevel = "INFO"
 	spritePngDepth = "AUTO"
-	spritePngIe6 = "false"
+	spritePngIe6 = "false"	
 }
 ```
 
+One can also specify the CSS file to process:
+ - ```cssFiles = "${webAppDir}/css/my_style.css"``` in case of using the 'war' plug-in
+ - or a list of files with ```source = fileTree(dir: "${webAppDir}", include: '**/*.css')```
+ 
 Than just call ```gradle sprites``` to generate the sprites.
