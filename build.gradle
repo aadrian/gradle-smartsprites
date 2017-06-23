@@ -40,7 +40,7 @@ pluginBundle {
     description = 'SmartSprites plug-in for Gradle.'
     plugins {
         smartspritesPlugin {
-            id = "smartsprites"
+            id = "io.github.smartsprites"
             version = "$version"
             displayName = 'SmartSprites plug-in for Gradle.'
             tags = ['smartsprites']

@@ -8,7 +8,7 @@ import static org.junit.Assert.*
 class SmartSpritesPluginTest {
     @Test public void applyPlugin() {
         Project project = ProjectBuilder.builder().build()
-        project.pluginManager.apply 'smartsprites'
+        project.pluginManager.apply 'io.github.smartsprites'
         assertTrue(project.tasks.sprites instanceof SmartSpritesTask)
     }
 }

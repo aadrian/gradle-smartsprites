@@ -18,7 +18,7 @@ buildscript {
     }
 }
 
-apply plugin: 'smartsprites'
+apply plugin: 'io.github.smartsprites'
 
 spriteConf {
     cssFileEncoding = "UTF-8"
