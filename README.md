@@ -1,12 +1,12 @@
 # gradle-smartsprites
-Gradle Plug-in for SmartSprites
+Gradle Plug-in for [SmartSprites](http://csssprites.org/).
 
 ### Usage
 Specify in your `build.gradle`:
 ```groovy
 buildscript {
     repositories {
-	    jcenter()
+        jcenter()
         maven {
             url uri('../repo')
         }
@@ -23,9 +23,9 @@ apply plugin: 'smartsprites'
 spriteConf {
     cssFileEncoding = "UTF-8"
     cssFileSuffix = "-v${version}"
-	logLevel = "INFO"
-	spritePngDepth = "AUTO"
-	spritePngIe6 = "false"	
+    logLevel = "INFO"
+    spritePngDepth = "AUTO"
+    spritePngIe6 = "false"	
 }
 ```
 
