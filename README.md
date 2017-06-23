@@ -2,24 +2,17 @@
 Gradle Plug-in for [SmartSprites](http://csssprites.org/).
 
 ### Usage
-Specify in your `build.gradle`:
+See: https://plugins.gradle.org/plugin/io.github.smartsprites
+
+Specify at the beginning of your `build.gradle`:
 ```groovy
-buildscript {
-    repositories {
-        jcenter()
-        maven {
-            url uri('../repo')
-        }
-    }
-    dependencies {
-        classpath group: 'io.github.smartsprites.gradle',
-                  name: 'gradle-smartsprites',
-                  version: '1.1-SNAPSHOT'
-    }
+plugins {
+  id "io.github.smartsprites" version "1.1"
 }
+```
 
-apply plugin: 'io.github.smartsprites'
-
+than configure it. 
+```groovy
 spriteConf {
     cssFileEncoding = "UTF-8"
     cssFileSuffix = "-v${version}"
